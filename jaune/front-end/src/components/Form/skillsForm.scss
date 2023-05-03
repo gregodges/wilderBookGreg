@@ -1,0 +1,19 @@
+.skillsForm{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(221, 189, 189, 0.782);
+  .checkboxWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    .input{
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+    }
+  }
+}

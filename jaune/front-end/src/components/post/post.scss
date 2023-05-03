@@ -1,0 +1,54 @@
+.post{
+  position: relative;
+  margin: 1rem 0;
+  width: 50vw;
+  height: 70dvh;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  &__header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+  &__userImg{
+    border-radius: 30rem;
+    overflow: hidden;
+  }
+  &__userInfos{
+    margin-left: 3rem;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    span{
+      &:last-of-type{
+        color: red;
+      }
+    }
+  }
+  &__content{
+    position: relative;
+    margin-top: 2rem;
+    width: 80%;
+    height: auto;
+    align-self: center;
+  }
+  &__commentWrap{
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.152);
+    width:80% ;
+    align-self: center;
+    margin-top: 2rem;
+    padding-top: .5rem;
+
+  }
+  &__comment{
+    margin-top: 1.5rem;
+    border: 1px solid red;
+    border-radius: 2px;
+    padding: 1rem;
+  }
+}

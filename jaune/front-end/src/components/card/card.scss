@@ -1,0 +1,51 @@
+@import '../../style.scss';
+.card{
+  position: relative;
+  width: 40vw;
+  height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFBC89;
+  margin: 2rem 3rem 3rem 0;
+  color: #2A0830;
+  border-radius: .2rem;
+  .cross{
+    @include cross
+  }
+  h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin: .5rem 0;
+  }
+ .imgWrapper {
+  position: relative;
+  width: 90%;
+  height: 50%;
+
+  img{
+    position: relative;
+    display: block;
+
+    margin: 1rem auto;
+    width: 40%;
+    height: auto;
+  }
+ }
+ &__body, &__footer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 90%;
+ }
+ &__skills{
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+ }
+
+}

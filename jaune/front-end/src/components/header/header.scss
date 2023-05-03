@@ -1,0 +1,27 @@
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  background-color:#2A0830;
+  z-index: 10;
+  h1{
+    position: relative;
+    font-size: 2rem;
+    color: #FFBC89;
+
+  }
+  ul{
+    position: relative;
+    display: flex;
+    justify-content: end;
+    width: 50%;
+    list-style: none;
+    li{
+      margin: 2rem;
+      color: white;
+    }
+  }
+}
