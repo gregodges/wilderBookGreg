@@ -1,4 +1,4 @@
-import { DataSource } from "typeorm";
+import { CreateDateColumn, DataSource } from "typeorm";
 import { Request, Response } from "express";
 import { Wilder } from "../entity/Wilder";
 import { Post } from "../entity/Post";
@@ -37,7 +37,10 @@ const commentController = {
   getAllComments: async (req: Request, res: Response) => {
     try {
       const dbCom = dataSource.getRepository(Comment)
-      const allComment = await dbCom.find({relations :{post :true, wilder:true}});
+      const allComment = await dbCom.find({
+        relations :{post :true, wilder:true},
+        order:{ createdDate : "DESC" }
+      });
       res.send(allComment)
     } catch (error) {
       console.log(error)

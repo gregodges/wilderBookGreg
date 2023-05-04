@@ -6,8 +6,7 @@ import router from './router/index'
 const app = express();
 
 
-// const port: number = 5001;
-// const url  = 'http://localhost:5001'
+
 app.use(cors());
 
 app.use(express.json());

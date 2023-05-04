@@ -37,7 +37,10 @@ const commentController = {
     getAllComments: async (req, res) => {
         try {
             const dbCom = utils_1.default.getRepository(Comment_1.Comment);
-            const allComment = await dbCom.find({ relations: { post: true, wilder: true } });
+            const allComment = await dbCom.find({
+                relations: { post: true, wilder: true },
+                order: { createdDate: "DESC" }
+            });
             res.send(allComment);
         }
         catch (error) {
