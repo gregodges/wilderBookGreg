@@ -18,7 +18,7 @@ export class Wilder{
   @OneToMany(() => Grade, (grade: Grade) => grade.wilder)
   grades: Grade[];
 
-  @OneToMany(()=> Post, (post: Post) => post.wilders)
+  @OneToMany(()=> Post, (post: Post) => post.wilder)
   posts : Post[]
 
   @OneToMany(() => Comment, (comment: Comment) => comment.wilder)

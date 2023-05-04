@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Wilder.prototype, "grades", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => Post_1.Post, (post) => post.wilders),
+    (0, typeorm_1.OneToMany)(() => Post_1.Post, (post) => post.wilder),
     __metadata("design:type", Array)
 ], Wilder.prototype, "posts", void 0);
 __decorate([

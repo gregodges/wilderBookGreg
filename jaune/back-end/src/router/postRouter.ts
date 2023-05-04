@@ -5,7 +5,8 @@ import commentController from '../controller/comment';
 const postRouter = express.Router();
 
 postRouter.post('/', postController.createPost)
-postRouter.get('/toto', postController.toto)
+postRouter.get('/', postController.toto)
+postRouter.delete('/all', postController.deleteAllPost)
 // postRouter.get('/:id', postController.)
 postRouter.put('/:id', postController.updatePost)
 postRouter.delete('/:id', postController.deletePost)

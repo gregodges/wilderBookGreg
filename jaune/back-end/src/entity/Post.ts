@@ -19,8 +19,8 @@ export class Post{
   @UpdateDateColumn()
   updated : Date
 
-  @ManyToOne(() => Wilder, (wilder) =>  wilder.posts, {eager :true})
-  wilders : Wilder;
+  @ManyToOne(() => Wilder, (wilder) =>  wilder.posts, {eager:true})
+  wilder : Wilder;
 
   @OneToMany(() => Comment, (comment) => comment.post)
   comments : Comment[]

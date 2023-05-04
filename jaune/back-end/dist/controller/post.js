@@ -7,33 +7,56 @@ const Post_1 = require("../entity/Post");
 const Wilder_1 = require("../entity/Wilder");
 const utils_1 = __importDefault(require("../utils"));
 const postController = {
+    deleteAllPost: async (req, res) => {
+        const repository = utils_1.default.getRepository(Post_1.Post);
+        await repository.clear();
+    },
     createPost: async (req, res) => {
         try {
-            const dbPost = utils_1.default.getRepository(Post_1.Post);
-            const { title } = req.body;
-            const { content } = req.body;
-            const wilder = await utils_1.default.getRepository(Wilder_1.Wilder).findOne({
-                where: { id: req.body.wilder },
-            });
-            await dbPost.save({
+            const wilderId = req.body.wilderId;
+            const title = req.body.title;
+            const content = req.body.content;
+            const wilder = await utils_1.default.getRepository(Wilder_1.Wilder).findOne({ where: { id: wilderId } });
+            console.log(wilderId);
+            console.log(wilder);
+            if (!wilder) {
+                return res.send("no wilder");
+            }
+            await utils_1.default.getRepository(Post_1.Post).save({
                 title,
                 content,
-                wilder: wilder
+                wilder,
             });
-            res.send('posted');
+            res.send("post created");
         }
-        catch (error) {
-            res.send('big fail my man');
-            console.log(error);
+        catch (err) {
+            console.log(err);
+            res.send("error while creating the post");
         }
+        // try{
+        //   const dbPost = dataSource.getRepository(Post)
+        // const {title} : any  = req.body;
+        // const {content}= req.body;
+        //   const wilder : any = await dataSource.getRepository(Wilder).findBy({
+        //     id :  req.body.wilder,
+        //   });
+        //    const newPost = await dbPost.save({
+        //       title ,
+        //       content,
+        //       wilder
+        //     })
+        //     console.log(newPost)
+        //     res.send(newPost)
+        // } catch (error){
+        //   res.send('big fail my man')
+        //   console.log(error)
+        // }
     },
     toto: async (req, res) => {
-        console.log('ici');
         try {
             const dbPost = utils_1.default.getRepository(Post_1.Post);
-            const allPost = await dbPost.find({ relations: { comments: true, wilders: true } });
-            console.log(allPost);
-            res.send('ici');
+            const allPost = await dbPost.find({ relations: { comments: true, wilder: true } });
+            res.send(allPost);
         }
         catch (error) {
             res.send("error retrieving the posts");

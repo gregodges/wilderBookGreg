@@ -19,7 +19,7 @@ let Post = class Post {
     content;
     createdDate;
     updated;
-    wilders;
+    wilder;
     comments;
 };
 __decorate([
@@ -45,7 +45,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.ManyToOne)(() => Wilder_1.Wilder, (wilder) => wilder.posts, { eager: true }),
     __metadata("design:type", Wilder_1.Wilder)
-], Post.prototype, "wilders", void 0);
+], Post.prototype, "wilder", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => Comment_1.Comment, (comment) => comment.post),
     __metadata("design:type", Array)

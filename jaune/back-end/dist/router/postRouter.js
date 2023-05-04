@@ -8,7 +8,8 @@ const post_1 = __importDefault(require("../controller/post"));
 const comment_1 = __importDefault(require("../controller/comment"));
 const postRouter = express_1.default.Router();
 postRouter.post('/', post_1.default.createPost);
-postRouter.get('/toto', post_1.default.toto);
+postRouter.get('/', post_1.default.toto);
+postRouter.delete('/all', post_1.default.deleteAllPost);
 // postRouter.get('/:id', postController.)
 postRouter.put('/:id', post_1.default.updatePost);
 postRouter.delete('/:id', post_1.default.deletePost);

@@ -1,0 +1,36 @@
+.postForm{
+  position: relative;
+  margin-top: 1.5rem;
+  border: .5px solid rgb(196, 196, 196);
+  border-radius: 10rem;
+  height: 4rem;
+  width: 50%;
+  overflow: hidden;
+  form{
+    display: flex;
+    flex-direction: column;
+    input{
+      height: 4rem;
+      border-radius: 10rem ;
+      border: none;
+    }
+  }
+  &--open{
+    height: 20rem;
+    border-radius: 0;
+    position: relative;
+    margin-top: 1.5rem;
+    border: .5px solid rgb(196, 196, 196);
+    width: 50%;
+    overflow: hidden;
+    transition: all .2s;
+    form{
+      display: flex;
+      flex-direction: column;
+      input{
+        height: 4rem;
+
+      }
+  }
+}
+}

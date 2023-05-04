@@ -7,8 +7,8 @@ const utils_1 = __importDefault(require("./utils"));
 const app_1 = __importDefault(require("./app"));
 const start = async () => {
     await utils_1.default.initialize();
-    app_1.default.listen(5001, () => {
-        console.log(`server is running on ${5001}`);
+    app_1.default.listen(5005, () => {
+        console.log(`server is running on ${5005}`);
     });
 };
 void start();

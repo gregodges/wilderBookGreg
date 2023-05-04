@@ -5,33 +5,58 @@ import { Request, Response } from 'express';
 
 const postController = {
 
+  deleteAllPost : async (req:Request, res:Response) => {
+    const repository = dataSource.getRepository(Post);
+    await repository.clear();
+  },
 createPost : async (req:Request, res:Response) => {
-  try{
-    const dbPost = dataSource.getRepository(Post)
-  const {title} : any  = req.body;
-  const {content}= req.body;
-    const wilder : any = await dataSource.getRepository(Wilder).findOne({
-      where: { id: req.body.wilder },
+  try {
+    const wilderId = req.body.wilderId;
+    const title = req.body.title;
+    const content = req.body.content;
+    const wilder : Wilder | null = await dataSource.getRepository(Wilder).findOne({where :{id: wilderId}})
+    console.log(wilderId);
+    console.log(wilder)
+
+    if(!wilder){
+    return res.send("no wilder")
+    }
+    await dataSource.getRepository(Post).save({
+      title,
+      content,
+      wilder,
     });
-      await dbPost.save({
-        title ,
-        content,
-        wilder: wilder
-      })
-      res.send('posted')
-  } catch (error){
-    res.send('big fail my man')
-    console.log(error)
+    res.send("post created");
+  } catch(err) {
+    console.log(err);
+    res.send("error while creating the post");
   }
+  // try{
+  //   const dbPost = dataSource.getRepository(Post)
+  // const {title} : any  = req.body;
+  // const {content}= req.body;
+  //   const wilder : any = await dataSource.getRepository(Wilder).findBy({
+  //     id :  req.body.wilder,
+  //   });
+  //    const newPost = await dbPost.save({
+  //       title ,
+  //       content,
+  //       wilder
+  //     })
+  //     console.log(newPost)
+  //     res.send(newPost)
+  // } catch (error){
+  //   res.send('big fail my man')
+  //   console.log(error)
+  // }
 },
 
 toto : async (req:Request, res:Response) =>{
-  console.log('ici')
+
 try {
   const dbPost = dataSource.getRepository(Post);
-  const allPost = await dbPost.find({relations : {comments: true, wilders:true}})
-  console.log(allPost)
-  res.send('ici')
+  const allPost = await dbPost.find({relations : {comments: true, wilder:true}})
+  res.send(allPost)
 } catch (error){
   res.send("error retrieving the posts")
 }
