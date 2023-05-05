@@ -32,12 +32,14 @@ const universityController = {
     addUniToOneWilder: async (req, res) => {
         try {
             const dbWilder = utils_1.default.getRepository(Wilder_1.Wilder);
+            const { uniId } = req.body;
             const [wilder] = await dbWilder.findBy({ id: req.body.wilder });
-            const uniToAdd = await utils_1.default.getRepository(University_1.University).findBy({ id: req.body.uniId });
+            const uniToAdd = await utils_1.default.getRepository(University_1.University).findBy({ id: uniId });
+            console.log('uniId', uniId);
+            console.log('uniToAdd', uniToAdd);
             const currentUniversities = wilder.universities ? wilder.universities : [];
             const allUni = await utils_1.default.getRepository(University_1.University).find();
             console.log('current', currentUniversities);
-            console.log(allUni);
             wilder.universities = currentUniversities.concat(uniToAdd);
             console.log(wilder.universities);
             await dbWilder.save(wilder);

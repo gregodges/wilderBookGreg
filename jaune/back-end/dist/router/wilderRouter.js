@@ -16,7 +16,7 @@ wilderRouter.delete('/:id', wilder_1.default.deletOne);
 wilderRouter.post('/skill', wilder_1.default.addSkillToOneWilder);
 wilderRouter.post('/skillGrade', grades_1.default.addGradeToOneWilder);
 wilderRouter.get('/skillGrade/:id', wilder_1.default.getGradesForOneWilder);
-wilderRouter.get('/university', university_1.default.addUniToOneWilder);
+wilderRouter.post('/university', university_1.default.addUniToOneWilder);
 // app.post('/api/grades', gardesController.postOneGrade);
 // app.get('/api/grades', gardesController.getAll);
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

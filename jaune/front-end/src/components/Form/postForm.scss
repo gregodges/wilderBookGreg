@@ -16,11 +16,11 @@
     }
   }
   &--open{
-    height: 20rem;
+    height: 22rem;
     border-radius: 0;
     position: relative;
     margin-top: 1.5rem;
-    border: .5px solid rgb(196, 196, 196);
+
     width: 50%;
     overflow: hidden;
     transition: all .2s;
@@ -31,6 +31,12 @@
         height: 4rem;
 
       }
+
+  }
+  button{
+    margin-top: 1rem;
+    width: 5rem;
+    align-self: center;
   }
 }
 }

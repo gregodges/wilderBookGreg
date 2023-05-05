@@ -3,15 +3,25 @@ import './skills.scss'
 
 type SkillType = {
   skills : {
-    id:number,
-    name:string
-  } | any
+    grade : number,
+    skill: {
+      id: number,
+      name: string
+    },
+    wilderId: number,
+    skillId: number
+  }
 
 }
 const Skills = (skills : SkillType) => {
+
+
   return (
     <li>
-      {skills.skills}
+      <span>{skills.skills.skill.name }</span>
+      <span>{skills.skills.grade}</span>
+
+
     </li>
   );
 };

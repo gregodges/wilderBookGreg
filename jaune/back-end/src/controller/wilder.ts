@@ -31,15 +31,16 @@ const wilderController = {
       res.send("Error while reading the wilders");
     }
   },
-  getOne: async (req:Request, res: Response) => {
-   const { id }: any = req.params;
+  getOne: async (req: Request, res: Response) => {
+    const { id }: any = req.params;
     try {
-      const oneWilder = await dataSource.getRepository(Wilder).findBy({
-        id,
+      const oneWilder = await dataSource.getRepository(Wilder).findOne({
+        where: { id: id },
+        relations: ['grades', 'grades.skill']
       });
       res.send(oneWilder);
-    } catch (error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
       res.send('error retrieving the wilder');
     }
   },

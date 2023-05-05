@@ -1,16 +1,16 @@
 import React, { ChangeEvent} from 'react';
 type Props = {
-  skill: {
+  props: {
     id: string,
     name: string
   },
   handleCheck: (event: ChangeEvent<HTMLInputElement>) => void,
 }
-const Radio = ({skill, handleCheck}: Props) => {
+const Radio = ({props, handleCheck}: Props) => {
   return (
     <div className='input'>
-    <label htmlFor={skill.name}>{skill.name}</label>
-    <input onChange={handleCheck}   type="checkbox" name={skill.name} id={skill.id} />
+    <label htmlFor={props.name}>{props.name}</label>
+    <input onChange={handleCheck}   type="checkbox" name={props.name} id={props.id} />
     </div>
   );
 };

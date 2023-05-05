@@ -1,0 +1,73 @@
+@import '../../style.scss';
+.userProfile{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 5rem;
+  h2{
+    font-size: 5rem;
+    font-family: $mainFont;
+    align-self: flex-start;
+    padding: 2rem 0 0 7rem;
+  }
+  &__edit{
+    font-family: $mainFont;
+    align-self: flex-start;
+    padding: 0rem 8rem 2rem ;
+  }
+  &__header{
+    position: relative;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+  }
+  &__imgWrap{
+    border-radius: 9rem;
+    overflow: hidden;
+    border: 5px solid rgb(118, 218, 131);
+    width: 8rem;
+    height: 8rem;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+  }
+  &__infos{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    span{
+      font-size: 1.5rem;
+      font-family: $mainFont;
+      text-transform: capitalize;
+      &:nth-of-type(even){
+        color: rgba(0, 0, 0, 0.272);
+        font-size: .8rem;
+      }
+    }
+  }
+  &__body{
+    position: relative;
+    width: 80%;
+    height: 30vh;
+    margin-top: 2rem;
+
+  }
+  &__gradeWrap, &__uniWrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-family: $mainFont;
+    img{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

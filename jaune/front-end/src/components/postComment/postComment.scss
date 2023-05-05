@@ -1,0 +1,37 @@
+.postComment{
+  padding-bottom: .4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.145);
+
+}
+
+.postComment, .postComment__content{
+  margin-top: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__userInfos{
+    display: flex;
+    align-items: center;
+    img{
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+    }
+    span{
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+  &__content{
+    span{
+      text-transform: capitalize;
+      margin-left: 2rem;
+      &:nth-of-type(even){
+        margin-top: .5rem;
+        color: rgba(0, 0, 0, 0.388);
+        margin-left: 0;
+      }
+    }
+  }
+}

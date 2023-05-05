@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './header.scss'
 
 const Header = () => {
@@ -6,8 +7,9 @@ const Header = () => {
     <nav>
       <h1>Wilders Book</h1>
       <ul>
-        <li>Home</li>
-        <li>Profile</li>
+        <li><NavLink to={'/'} className={({isActive}) => isActive ? 'active' : ''  }>Home</NavLink></li>
+        <li><NavLink to={'/friends'}>Friends</NavLink></li>
+        <li><NavLink to={'/profile/27'}>My profile</NavLink></li>
       </ul>
     </nav>
   );

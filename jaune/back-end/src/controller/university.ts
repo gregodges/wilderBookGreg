@@ -31,17 +31,17 @@ const universityController = {
   addUniToOneWilder: async (req: Request, res: Response) => {
     try {
       const dbWilder = dataSource.getRepository(Wilder);
-      const [wilder]: any = await dbWilder.findBy({ id: req.body.wilder });
-      const uniToAdd: any = await dataSource.getRepository(University).findBy({ id: req.body.uniId });
+      const {uniId} = req.body;
+      const [wilder]: any = await dbWilder.findBy({ id: req.body.wilderId });
+      const uniToAdd: any = await dataSource.getRepository(University).findBy({ id: uniId });
+      console.log('uniId' , uniId);
 
       const currentUniversities =  wilder.universities ? wilder.universities : []
       const allUni = await dataSource.getRepository(University).find()
-      console.log('current', currentUniversities)
-      console.log(allUni);
+      console.log('wilder', wilder)
 
       wilder.universities = currentUniversities.concat(uniToAdd);
 
-      console.log(wilder.universities)
       await dbWilder.save(wilder)
       res.send('ok')
 

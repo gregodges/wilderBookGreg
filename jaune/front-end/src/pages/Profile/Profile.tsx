@@ -3,6 +3,7 @@ import './profile.scss'
 import axios from 'axios';
 import Card from '../../components/card/Card.js';
 import Form  from '../../components/Form/Form.js';
+import Header from '../../components/header/Header';
 
 
 type WilderType = {
@@ -11,9 +12,14 @@ type WilderType = {
       id: number,
       name:string,
       city : string
-      skills:{
-        id:number,
-        name:string
+      grades:{
+        wilderId: number,
+        skillId: number,
+        grade: number,
+        skill:{
+          id:number,
+          name:string
+        }
       }[]
     }
   }
@@ -23,18 +29,23 @@ type Wilder = {
   id: number,
   name:string,
   city : string
-  skills:{
-    id:number,
-    name:string
+  grades:{
+    wilderId: number,
+    skillId: number,
+    grade: number,
+    skill:{
+      id:number,
+      name:string
+    }[]
   }[] | any
 }
 
 const Profile = () => {
   const [wilders, setWilders] = useState<WilderType>([]);
-  const [posted, setPosted] = useState<any>(false)
+  const [posted, setPosted] = useState<boolean>(false)
 
   const fetchWilder = () => {
-    axios.get('http://localhost:5001/api/wilder')
+    axios.get('http://localhost:5005/api/wilder')
     .then((res) => {
       setWilders(res.data.reverse())
     })
@@ -42,7 +53,7 @@ const Profile = () => {
   }
 
   const reFetch = () => {
-    setPosted(true)
+    setPosted(!posted)
   }
   useEffect(()=> {
     fetchWilder()
@@ -51,9 +62,13 @@ const Profile = () => {
 
 
   return (
-    <div className='home'>
+    <div className='profile'>
+      <Header/>
+      <div className="gridWrap">
       <Form posted={reFetch}/>
+
       {wilders.map((wilder: Wilder) => <Card posted={reFetch} key={wilder.id} wilder={wilder} />)}
+      </div>
     </div>
   );
 };

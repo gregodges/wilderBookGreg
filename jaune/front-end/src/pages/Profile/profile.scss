@@ -1,9 +1,12 @@
-.home{
+.profile{
   position: relative;
   top: 5rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: end;
+
+  .gridWrap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: end;
+  }
   .card:nth-child(even){
     justify-self: start;
   }

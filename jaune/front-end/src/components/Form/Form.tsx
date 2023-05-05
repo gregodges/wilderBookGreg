@@ -2,7 +2,11 @@ import React, {ChangeEvent, useState} from 'react';
 import './form.scss'
 import axios from 'axios';
 
-const Form = ({posted} : any) => {
+type Posted = {
+  posted: (()=> void)
+}
+
+const Form = ({posted} : Posted) => {
 const [value, setValue] = useState({name: '', city:''})
 
 const handleChange = (event:any): any => {
@@ -18,7 +22,7 @@ const handleChange = (event:any): any => {
     formDataObj[key] = value;
     });
 
-    axios.post('http://localhost:5001/api/wilder', formDataObj )
+    axios.post('http://localhost:5005/api/wilder', formDataObj )
     .then((res) => res)
     .catch((err)=> console.error(err))
     setValue({name: '', city:''})
@@ -27,13 +31,17 @@ const handleChange = (event:any): any => {
   }
 
   return (
-    <form onSubmit={handleWilder}>
+    <div className="wilderFormWrap">
+
+
+    <form className='wilderForm' onSubmit={handleWilder}>
       <label htmlFor="name">Name</label>
       <input onChange={handleChange} value={value.name}  type="text" name="name" id="name" />
       <label htmlFor="city">City</label>
       <input  onChange={handleChange} value={value.city}  type="text" name="city" id="city" />
       <button type="submit">Add Wilder</button>
     </form>
+    </div>
 
   );
 };

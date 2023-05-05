@@ -1,20 +1,41 @@
+@import '../../style.scss';
+
 .post{
   position: relative;
   margin: 1rem 0;
   width: 50vw;
-  height: 70dvh;
-  border: 1px solid grey;
+  height: auto;
+  border-radius: .5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+
+  .cross{
+    @include cross;
+    top: 0;
+    left: 0;
+  }
   &__header{
     position: relative;
     display: flex;
     align-items: center;
+    width: 95%;
     height: 100px;
+
   }
   &__userImg{
-    border-radius: 30rem;
+    border-radius: 10rem;
     overflow: hidden;
+    width: 90px;
+    height: 90px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
   }
   &__userInfos{
     margin-left: 3rem;
@@ -23,32 +44,54 @@
     flex-direction: column;
     align-items: start;
     justify-content: end;
+
     span{
+      font-family: $mainFont;
+      text-transform: capitalize;
+      font-size: 1.4rem;
       &:last-of-type{
-        color: red;
+        color: rgba(0, 0, 0, 0.372);
+        font-size: 1rem;
       }
     }
   }
   &__content{
     position: relative;
-    margin-top: 2rem;
+    margin-top: 0rem;
     width: 80%;
     height: auto;
     align-self: center;
+    h4{
+      margin: 1rem 0;
+    }
   }
   &__commentWrap{
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.152);
+    align-self: end;
     width:80% ;
+    height: auto;
+    max-height: 12rem;
     align-self: center;
     margin-top: 2rem;
     padding-top: .5rem;
+  }
+  &__commentSection{
+    position: relative;
+    width:100% ;
+    height: auto;
+    max-height: 10rem;
+    overflow: scroll;
 
+  }
+  &__commentNumber{
+      position: relative;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.152);
   }
   &__comment{
     margin-top: 1.5rem;
-    border: 1px solid red;
     border-radius: 2px;
-    padding: 1rem;
+
+
   }
 }

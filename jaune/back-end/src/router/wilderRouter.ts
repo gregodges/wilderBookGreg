@@ -14,7 +14,7 @@ wilderRouter.post('/skill', wilderController.addSkillToOneWilder)
 
 wilderRouter.post('/skillGrade', gradeControlller.addGradeToOneWilder);
 wilderRouter.get('/skillGrade/:id', wilderController.getGradesForOneWilder);
-wilderRouter.get('/university', universityController.addUniToOneWilder)
+wilderRouter.post('/university', universityController.addUniToOneWilder)
 
 // app.post('/api/grades', gardesController.postOneGrade);
 // app.get('/api/grades', gardesController.getAll);

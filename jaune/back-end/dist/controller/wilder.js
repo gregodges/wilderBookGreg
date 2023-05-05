@@ -34,8 +34,9 @@ const wilderController = {
     getOne: async (req, res) => {
         const { id } = req.params;
         try {
-            const oneWilder = await utils_1.default.getRepository(Wilder_1.Wilder).findBy({
-                id,
+            const oneWilder = await utils_1.default.getRepository(Wilder_1.Wilder).findOne({
+                where: { id: id },
+                relations: ['grades', 'grades.skill']
             });
             res.send(oneWilder);
         }

@@ -1,7 +1,9 @@
 import React, {ChangeEvent} from 'react';
 import axios from 'axios'
+import './commentForm.scss'
 
-const CommentForm = ({postId} :any) => {
+const CommentForm = ({postId} : number | any ) => {
+
 
   const handleSubmit = (event : ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()

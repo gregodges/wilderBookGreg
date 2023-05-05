@@ -1,5 +1,7 @@
+@import '../../style.scss';
 nav {
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,6 +13,7 @@ nav {
     position: relative;
     font-size: 2rem;
     color: #FFBC89;
+    font-family: $mainFont;
 
   }
   ul{
@@ -20,8 +23,21 @@ nav {
     width: 50%;
     list-style: none;
     li{
+
       margin: 2rem;
-      color: white;
+      a{
+        background-color: transparent ;
+        color: white;
+        text-decoration: none;
+        padding: 1rem;
+        border-radius: 2rem;
+    font-family: $mainFont;
+
+      }
+      .active{
+        background-color: white;
+        color: black;
+      }
     }
   }
 }

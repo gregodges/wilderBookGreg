@@ -5,4 +5,19 @@ li{
   color: #FFBC89;
   background-color: #2A0830;
   border-radius: .2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span:nth-of-type(even){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: .5rem;
+    background-color:#FFBC89 ;
+    color: #2A0830;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+
+  }
 }

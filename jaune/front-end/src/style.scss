@@ -3,9 +3,24 @@
 	padding: 0;
 	margin: 0;
 }
-@mixin cross($size: 20px, $weight: 1px) {
-  display: inline-block;
-  position: relative;
+#root .profile, .home{
+  min-height: 100dvh;
+  height: auto;
+  background-color: rgb(238, 238, 238);
+
+}
+@font-face {
+  font-family: neue;
+  font-weight: 100 1000;
+  src: url('./assets/fonts/Neue.woff2') format('woff2-variations');
+  font-display: swap;
+}
+
+$mainFont: neue;
+
+$mainFont : neue;
+@mixin cross($size: 30px, $weight: 1px) {
+  position: absolute;
   width: $size;
   height: $size;
 
@@ -14,8 +29,8 @@
     content: '';
     display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0%;
+    left: 0%;
     width: 100%;
     border: $weight solid currentColor;
   }
@@ -27,4 +42,21 @@
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
+}
+button{
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 3rem;
+  background-color:rgb(33, 116, 33);
+  color: white;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: $mainFont;
+
+  &:hover{
+    background-color:rgb(57, 152, 57);
+  transition: all .2s;
+
+  }
+
 }

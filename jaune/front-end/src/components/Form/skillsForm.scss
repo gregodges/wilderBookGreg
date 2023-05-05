@@ -1,19 +1,41 @@
+@import '../../style.scss';
 .skillsForm{
   position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   background-color: rgba(221, 189, 189, 0.782);
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__range{
+    margin: 2rem;
+    width: 60%;
+  }
+  &__rangeValue{
+    font-size: 4rem;
+    font-family: $mainFont;
+  }
+   span{
+    font-size: 2rem;
+    font-family: $mainFont;
+    margin: 1rem auto;
+   }
   .checkboxWrapper{
     position: relative;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
     .input{
       display: flex;
       flex-direction: column;
       margin: 1rem;
+
     }
   }
 }
